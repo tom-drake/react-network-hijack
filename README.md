@@ -6,14 +6,14 @@ The aim for this library is to provide an easy way to mock network requests in a
 
 To use this in your stories or other browser tests you can specify a set of urls, their methods to mock and what data to return as options to the HoC and then pass your own component in.
 
-```
+```js
 import withNetworkMock from "react-network-hijack";
 
 const NetworkMocked = withNetworkMock({
   GET: {
     "https://jsonplaceholder.typicode.com/todos/1": {
       body: {
-        mocked: true
+        ...
       },
       status: 200,
       delay: 200
@@ -23,8 +23,6 @@ const NetworkMocked = withNetworkMock({
     ...
   }
 })(MyComponent);
-
-return <NetworkMocked />;
 ```
 
 The top level object contains the methods to mock. For each of these methods you can mock individual urls with a set of options.
