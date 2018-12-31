@@ -2,7 +2,10 @@
   "name": "react-network-hijack",
   "version": "0.1.5",
   "description": "A small higher order component for hijacking all network requests while a component is mounted",
-  "main": "lib/index.js",
+  "browser": "lib/index.js",
+  "homepage": "https://github.com/tom-drake/react-network-hijack",
+  "author": "Thomas Drake <tom@tom-drake.co.uk>",
+  "license": "MIT",
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\",\"src/**/story/*\"",
     "test": "exit 0",
@@ -11,8 +14,6 @@
     "release": "release-it",
     "prepublish": "npm run build"
   },
-  "author": "Thomas Drake <tom@tom-drake.co.uk>",
-  "license": "MIT",
   "dependencies": {
     "fetch-mock": "^7.2.5",
     "hoist-non-react-statics": "^3.2.1",
