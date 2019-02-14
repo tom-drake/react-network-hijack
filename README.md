@@ -36,9 +36,26 @@ The top level object contains the methods to mock. For each of these methods you
   - Required: No (default: 200)
   - Usage: The response status to return.
 - delay:
+
   - Type: Number
   - Required: No (default: 50ms)
   - Usage: The amount of delay a network request should have.
+
+If a request is not mocked an event will be emitted that you can capture in some other component and display a warning to the user. You can import this with:
+
+```js
+import { UNMOCKED_EVENT } from "react-network-hijack";
+```
+
+You can also pass a whitelist to the `withNetworkMock` function to stop emits happening on certain URLs. The whitelist can contain either regular expressions for fuzzy matching or strings for exact matches.
+
+```js
+import withNetworkMock from "react-network-hijack";
+
+const whitelist = ["example.com", /www.example.com/];
+
+const NetworkMocked = withNetworkMock(config, whitelist)(MyComponent);
+```
 
 ## License
 
