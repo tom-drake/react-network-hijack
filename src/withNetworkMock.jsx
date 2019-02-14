@@ -4,7 +4,7 @@ import hoistNonReactStatics from "hoist-non-react-statics";
 import MockState from "./MockState";
 import hijackNetwork from "./networkMock";
 
-export default function withNetworkMock(networkMocks, whitelist) {
+export default function withNetworkMock(networkMocks = {}, whitelist = []) {
   return WrappedComponent => {
     class NetworkMock extends Component {
       static displayName =

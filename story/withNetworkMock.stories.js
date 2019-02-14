@@ -66,8 +66,8 @@ storiesOf("withNetworkMock", module)
     const ThirdNetworkMocked = withNetworkMock(config, whitelist)(
       DetectUnmocked
     );
-    const SecondNetworkMocked = withNetworkMock({}, [])(ThirdNetworkMocked);
-    const NetworkMocked = withNetworkMock({}, [])(SecondNetworkMocked);
+    const SecondNetworkMocked = withNetworkMock()(ThirdNetworkMocked);
+    const NetworkMocked = withNetworkMock()(SecondNetworkMocked);
 
     return <NetworkMocked url={mockedUrl} />;
   });
