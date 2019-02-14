@@ -1,0 +1,20 @@
+{
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/no-multi-comp": 0,
+    "react/prop-types": 0
+  }
+}

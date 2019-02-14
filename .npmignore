@@ -1,3 +1,5 @@
 .storybook
 src
+story
 babel.config.js
+.eslintrc.json
