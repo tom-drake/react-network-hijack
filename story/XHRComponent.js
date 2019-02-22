@@ -20,16 +20,19 @@ const useXHR = url => {
   const [data, setData] = useState();
   const [error, setError] = useState();
 
-  useEffect(
-    () => {
-      makeRequest("GET", url)
-        .then(response => JSON.parse(response))
-        .then(setData)
-        .catch(setError)
-        .then(() => setLoading(false));
-    },
-    [url]
-  );
+  useEffect(() => {
+    let isMounted = true;
+
+    makeRequest("GET", url)
+      .then(response => JSON.parse(response))
+      .then(_data => isMounted && setData(_data))
+      .catch(_error => isMounted && setError(_error))
+      .then(() => isMounted && setLoading(false));
+
+    return () => {
+      isMounted = false;
+    };
+  }, [url]);
 
   return { loading, data, error };
 };

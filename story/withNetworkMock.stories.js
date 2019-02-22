@@ -1,24 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select } from "@storybook/addon-knobs";
-import { Button } from "@storybook/react/demo";
 
 import withNetworkMock from "../src/withNetworkMock";
 import Unmocked from "./Unmocked";
 import FetchComponent from "./FetchComponent";
 import XHRComponent from "./XHRComponent";
 
-const mockedUrl = "https://jsonplaceholder.typicode.com/todos/1";
-const unMockedUrl = "https://jsonplaceholder.typicode.com/todos/2";
+const MOCKED_URL = "https://jsonplaceholder.typicode.com/todos/1";
+const UNMOCKED_URL = "https://jsonplaceholder.typicode.com/todos/2";
 
 const whitelist = [/.hot-update.json/];
 
 const withUnmocked = MockComponent => ({ url }) => (
   <>
     <Unmocked />
-    <MockComponent url={"https://jsonplaceholder.typicode.com/todos/3"} />
+    <MockComponent url="https://jsonplaceholder.typicode.com/todos/3" />
     <MockComponent url={url} />
-    <MockComponent url={"https://jsonplaceholder.typicode.com/todos/4"} />
+    <MockComponent url="https://jsonplaceholder.typicode.com/todos/4" />
   </>
 );
 
@@ -46,8 +45,8 @@ const generateKnobs = (mockedUrl, unMockedUrl) => ({
 });
 
 const generateStory = MockComponent => {
-  const { url } = generateKnobs(mockedUrl, unMockedUrl);
-  const config = getConfig(mockedUrl);
+  const { url } = generateKnobs(MOCKED_URL, UNMOCKED_URL);
+  const config = getConfig(MOCKED_URL);
 
   const DetectUnmocked = withUnmocked(MockComponent);
   const NetworkMocked = withNetworkMock(config, whitelist)(DetectUnmocked);
@@ -60,7 +59,7 @@ storiesOf("withNetworkMock", module)
   .add("fetch", () => generateStory(FetchComponent))
   .add("xhr", () => generateStory(XHRComponent))
   .add("nested", () => {
-    const config = getConfig(mockedUrl);
+    const config = getConfig(MOCKED_URL);
 
     const DetectUnmocked = withUnmocked(XHRComponent);
     const ThirdNetworkMocked = withNetworkMock(config, whitelist)(
@@ -69,5 +68,5 @@ storiesOf("withNetworkMock", module)
     const SecondNetworkMocked = withNetworkMock()(ThirdNetworkMocked);
     const NetworkMocked = withNetworkMock()(SecondNetworkMocked);
 
-    return <NetworkMocked url={mockedUrl} />;
+    return <NetworkMocked url={MOCKED_URL} />;
   });
