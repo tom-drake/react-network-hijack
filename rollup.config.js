@@ -8,7 +8,7 @@ import visualizer from 'rollup-plugin-visualizer';
 const moduleConfig = moduleFormat => ({
   input: './src/index.js',
   output: {
-    file: `./build/bundle.${moduleFormat}.js`,
+    file: `./build/${moduleFormat}/index.js`,
     format: moduleFormat,
     name: `bundle.${moduleFormat}`
   },

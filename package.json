@@ -2,8 +2,8 @@
   "name": "react-network-hijack",
   "version": "2.0.1",
   "description": "A small higher order component for hijacking all network requests while a component is mounted",
-  "main": "build/build.cjs.js",
-  "browser": "lib/index.js",
+  "main": "build/cjs/index.js",
+  "browser": "build/cjs/index.js",
   "homepage": "https://github.com/tom-drake/react-network-hijack",
   "author": "Thomas Drake <tom@tom-drake.co.uk>",
   "license": "MIT",
@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/tom-drake/react-network-hijack/issues"
   },
-  "module": "build/build.esm.js",
+  "module": "build/esm/index.js",
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
