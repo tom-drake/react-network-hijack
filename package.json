@@ -7,46 +7,51 @@
   "homepage": "https://github.com/tom-drake/react-network-hijack",
   "author": "Thomas Drake <tom@tom-drake.co.uk>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tom-drake/react-network-hijack.git"
+  },
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib --ignore \"src/**/*.test.js\"",
-    "test": "eslint src story",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "release": "release-it",
+    "lint": "eslint --ext .jsx --ext .js src story",
+    "prettier": "prettier --check 'src/**/*.{js,jsx}' 'story/**/*.js'",
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "release": "npm test && npm run lint && npm run prettier && release-it",
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "fetch-mock": "7.2.5",
-    "hoist-non-react-statics": "3.2.1",
-    "xhr-mock": "2.4.1"
+    "core-js": "^2.6.9",
+    "fetch-mock": "7.3.9",
+    "hoist-non-react-statics": "3.3.0",
+    "xhr-mock": "2.5.0"
   },
   "peerDependencies": {
-    "react": ">= 16.3.x"
+    "react": ">=16.3.x"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.5",
-    "@babel/core": "7.1.6",
-    "@babel/plugin-proposal-class-properties": "7.1.0",
-    "@babel/preset-env": "7.1.6",
+    "@babel/cli": "7.6.0",
+    "@babel/core": "7.6.0",
+    "@babel/plugin-proposal-class-properties": "7.5.5",
+    "@babel/preset-env": "7.6.0",
     "@babel/preset-react": "7.0.0",
-    "@storybook/addon-actions": "4.0.9",
-    "@storybook/addon-knobs": "4.1.4",
-    "@storybook/addon-links": "4.0.9",
-    "@storybook/addons": "4.0.9",
-    "@storybook/react": "4.0.9",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "8.0.4",
-    "eslint": "5.3.0",
-    "eslint-config-airbnb": "17.1.0",
-    "eslint-config-prettier": "4.0.0",
-    "eslint-plugin-import": "2.16.0",
-    "eslint-plugin-jsx-a11y": "6.2.1",
-    "eslint-plugin-prettier": "3.0.1",
-    "eslint-plugin-react": "7.12.4",
-    "prettier": "1.16.4",
-    "react": "16.8.1",
-    "react-dom": "16.8.1",
-    "react-json-view": "1.19.1",
-    "release-it": "9.3.0"
+    "@storybook/addon-actions": "5.2.1",
+    "@storybook/addon-knobs": "5.2.1",
+    "@storybook/addon-links": "5.2.1",
+    "@storybook/addons": "5.2.1",
+    "@storybook/react": "5.2.1",
+    "babel-eslint": "10.0.3",
+    "babel-loader": "8.0.6",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "6.3.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-react": "7.14.3",
+    "prettier": "1.18.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "release-it": "12.4.1"
   }
 }

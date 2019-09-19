@@ -1,14 +1,14 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { withKnobs, select } from "@storybook/addon-knobs";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
-import withNetworkMock from "../src/withNetworkMock";
-import Unmocked from "./Unmocked";
-import FetchComponent from "./FetchComponent";
-import XHRComponent from "./XHRComponent";
+import withNetworkMock from '../src/withNetworkMock';
+import Unmocked from './Unmocked';
+import FetchComponent from './FetchComponent';
+import XHRComponent from './XHRComponent';
 
-const MOCKED_URL = "https://jsonplaceholder.typicode.com/todos/1";
-const UNMOCKED_URL = "https://jsonplaceholder.typicode.com/todos/2";
+const MOCKED_URL = 'https://jsonplaceholder.typicode.com/todos/1';
+const UNMOCKED_URL = 'https://jsonplaceholder.typicode.com/todos/2';
 
 const whitelist = [/.hot-update.json/];
 
@@ -35,7 +35,7 @@ const getConfig = mockedUrl => ({
 
 const generateKnobs = (mockedUrl, unMockedUrl) => ({
   url: select(
-    "URLs",
+    'URLs',
     {
       [`Mocked (${mockedUrl})`]: mockedUrl,
       [`UnMocked (${unMockedUrl})`]: unMockedUrl
@@ -54,11 +54,11 @@ const generateStory = MockComponent => {
   return <NetworkMocked url={url} />;
 };
 
-storiesOf("withNetworkMock", module)
+storiesOf('withNetworkMock', module)
   .addDecorator(withKnobs)
-  .add("fetch", () => generateStory(FetchComponent))
-  .add("xhr", () => generateStory(XHRComponent))
-  .add("nested", () => {
+  .add('fetch', () => generateStory(FetchComponent))
+  .add('xhr', () => generateStory(XHRComponent))
+  .add('nested', () => {
     const config = getConfig(MOCKED_URL);
 
     const DetectUnmocked = withUnmocked(XHRComponent);

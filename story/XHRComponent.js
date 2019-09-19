@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import ReactJson from "react-json-view";
+import React, { useState, useEffect } from 'react';
 
 function makeRequest(method, url) {
   return new Promise((resolve, reject) => {
@@ -23,7 +22,7 @@ const useXHR = url => {
   useEffect(() => {
     let isMounted = true;
 
-    makeRequest("GET", url)
+    makeRequest('GET', url)
       .then(response => JSON.parse(response))
       .then(_data => isMounted && setData(_data))
       .catch(_error => isMounted && setError(_error))
@@ -40,5 +39,9 @@ const useXHR = url => {
 export default ({ url }) => {
   const state = useXHR(url);
 
-  return <ReactJson src={state} />;
+  return (
+    <div>
+      <pre>{JSON.stringify(state, null, 2)}</pre>
+    </div>
+  );
 };

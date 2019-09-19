@@ -1,4 +1,4 @@
-import withNetworkMock from "./withNetworkMock";
+import withNetworkMock from './withNetworkMock';
 
-export { UNMOCKED_EVENT } from "./events";
+export { UNMOCKED_EVENT } from './events';
 export default withNetworkMock;

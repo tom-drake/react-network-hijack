@@ -1,11 +1,12 @@
 module.exports = {
-  plugins: ["@babel/plugin-proposal-class-properties"],
+  plugins: ['@babel/plugin-proposal-class-properties'],
   presets: [
-    "@babel/preset-react",
+    '@babel/preset-react',
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
-        useBuiltIns: "entry"
+        corejs: '2',
+        useBuiltIns: 'usage'
       }
     ]
   ]

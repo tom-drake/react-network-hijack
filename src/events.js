@@ -1,4 +1,4 @@
-export const UNMOCKED_EVENT = "http_not_mocked";
+export const UNMOCKED_EVENT = 'http_not_mocked';
 
 export function emitProxyEventIfNotWhiteListed(url, whitelist) {
   let emitEvent = true;

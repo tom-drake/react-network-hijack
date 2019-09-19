@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import ReactJson from "react-json-view";
+import React, { useState, useEffect } from 'react';
 
 const useFetch = url => {
   const [loading, setLoading] = useState(true);
@@ -26,5 +25,9 @@ const useFetch = url => {
 export default ({ url }) => {
   const state = useFetch(url);
 
-  return <ReactJson src={state} />;
+  return (
+    <div>
+      <pre>{JSON.stringify(state, null, 2)}</pre>
+    </div>
+  );
 };

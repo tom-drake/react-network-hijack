@@ -1,6 +1,6 @@
-import fetchMock from "fetch-mock";
+import fetchMock from 'fetch-mock';
 
-import { emitProxyEventIfNotWhiteListed } from "./events";
+import { emitProxyEventIfNotWhiteListed } from './events';
 
 export default function patchFetchMockForEmit(whitelist) {
   fetchMock.executeRouter = function executeRouter(url, options, request) {

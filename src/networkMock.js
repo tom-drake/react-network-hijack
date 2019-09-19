@@ -1,8 +1,8 @@
-import fetchMock from "fetch-mock";
-import xhrMock, { delay as xhrDelay } from "xhr-mock";
+import fetchMock from 'fetch-mock';
+import xhrMock, { delay as xhrDelay } from 'xhr-mock';
 
-import xhrProxy from "./xhrProxy";
-import patchFetchMockForEmit from "./fetchMockPatch";
+import xhrProxy from './xhrProxy';
+import patchFetchMockForEmit from './fetchMockPatch';
 
 const REQUEST_DELAY = 50;
 

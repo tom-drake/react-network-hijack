@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { UNMOCKED_EVENT } from "../src/events";
+import React, { useState, useEffect } from 'react';
+import { UNMOCKED_EVENT } from '../src/events';
 
 function useUnmocked() {
   const [unmocked, setUnmocked] = useState(false);

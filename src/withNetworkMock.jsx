@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import hoistNonReactStatics from "hoist-non-react-statics";
+import React, { Component } from 'react';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 
-import MockState from "./MockState";
-import hijackNetwork from "./networkMock";
+import MockState from './MockState';
+import hijackNetwork from './networkMock';
 
 export default function withNetworkMock(networkMocks = {}, whitelist = []) {
   return WrappedComponent => {
     class NetworkMock extends Component {
       static displayName =
-        WrappedComponent.displayName || WrappedComponent.name || "Component";
+        WrappedComponent.displayName || WrappedComponent.name || 'Component';
 
       constructor(...args) {
         super(...args);
