@@ -1,6 +1,7 @@
 .storybook
+reports
 src
 story
-babel.config.js
 .eslintrc.js
 .prettierrc.js
+rollup.config.js
