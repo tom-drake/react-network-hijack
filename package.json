@@ -1,6 +1,6 @@
 {
   "name": "react-network-hijack",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A small higher order component for hijacking all network requests while a component is mounted",
   "main": "build/cjs/index.js",
   "browser": "build/cjs/index.js",
