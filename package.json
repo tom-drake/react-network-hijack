@@ -2,7 +2,7 @@
   "name": "react-network-hijack",
   "version": "2.0.0",
   "description": "A small higher order component for hijacking all network requests while a component is mounted",
-  "main": "lib/index.js",
+  "main": "build/build.cjs.js",
   "browser": "lib/index.js",
   "homepage": "https://github.com/tom-drake/react-network-hijack",
   "author": "Thomas Drake <tom@tom-drake.co.uk>",
@@ -11,17 +11,20 @@
     "type": "git",
     "url": "git@github.com:tom-drake/react-network-hijack.git"
   },
+  "bugs": {
+    "url": "https://github.com/tom-drake/react-network-hijack/issues"
+  },
+  "module": "build/build.esm.js",
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint --ext .jsx --ext .js src story",
     "prettier": "prettier --check 'src/**/*.{js,jsx}' 'story/**/*.js'",
-    "build": "rm -rf lib && babel src --out-dir lib",
+    "build": "rollup -c",
     "release": "npm test && npm run lint && npm run prettier && release-it",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "dependencies": {
-    "core-js": "^2.6.9",
     "fetch-mock": "7.3.9",
     "hoist-non-react-statics": "3.3.0",
     "xhr-mock": "2.5.0"
@@ -52,6 +55,13 @@
     "prettier": "1.18.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "release-it": "12.4.1"
+    "release-it": "12.4.1",
+    "rollup": "1.19.4",
+    "rollup-plugin-auto-external": "2.0.0",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-filesize": "6.2.0",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-progress": "1.1.1",
+    "rollup-plugin-visualizer": "2.5.4"
   }
 }
